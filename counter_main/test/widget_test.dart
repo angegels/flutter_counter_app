@@ -12,19 +12,24 @@ import 'package:counter_main/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
+    // Starts at 0
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);
 
-    // Tap the '+' icon and trigger a frame.
+    // Tap '+' and wait for the delayed update to complete
     await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
 
-    // Verify that our counter has incremented.
+    // Option A: wait a specific duration (> 50ms)
+    await tester.pump(const Duration(milliseconds: 60));
+
+    // Option B (more robust): settle all animations/futures
+    // await tester.pumpAndSettle();
+
+    // Now it should read 1
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
 }
+

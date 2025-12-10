@@ -141,29 +141,29 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
                 ElevatedButton(
                   onPressed: _isLoading ? null : _incrementCounter,
-                  child: const Icon(Icons.add),
                   style: ElevatedButton.styleFrom(
                     shape: const CircleBorder(),
                     padding: const EdgeInsets.all(24),
-                  )
+                  ),
+                  child: const Icon(Icons.add),
                 ),
                 const SizedBox(width: 20),
                 ElevatedButton(
                   onPressed: _isLoading ? null : _decrementCounter,
-                  child: const Icon(Icons.remove),
                   style: ElevatedButton.styleFrom(
                     shape: const CircleBorder(),
                     padding: const EdgeInsets.all(24),
-                  )
+                  ),
+                  child: const Icon(Icons.remove),
                 ),
                 const SizedBox(width: 20),
                 ElevatedButton(
                   onPressed: _isLoading ? null : _resetCounter,
-                  child: const Icon(Icons.refresh),
                   style: ElevatedButton.styleFrom(
                     shape: const CircleBorder(),
                     padding: const EdgeInsets.all(24),
-                  )
+                  ),
+                  child: const Icon(Icons.refresh),
                 ),
               ]
             )
